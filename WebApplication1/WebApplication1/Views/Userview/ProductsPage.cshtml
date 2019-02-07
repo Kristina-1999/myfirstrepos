@@ -1,0 +1,64 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<WebApplication1.Models.Product>
+
+
+<link href="Site.css" rel="stylesheet" type="text/css" />
+@{
+	ViewBag.Title = "User";
+}
+
+<hr />
+<h4>Личный кабинет администратора</h4>
+<hr />
+<table class="table">
+    <tr>
+        <td>
+            Название
+        </td>
+        <td>
+            Описание
+        </td>
+        <td>
+            Категория
+        </td>
+        <td>
+            Цена
+        </td>
+        <td>
+            Изображение
+        </td>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.ActionLink("Удалить", "DeleteProduct", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+<br /><br /><br />
+Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("ProductsPage", new { page }))
+<br />
+<br />
+@Html.ActionLink("Добавить товар", "AddProduct")
+@Html.ActionLink("В кабинет", "LKA")

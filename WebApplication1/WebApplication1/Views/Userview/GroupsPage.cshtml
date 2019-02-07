@@ -1,0 +1,40 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<WebApplication1.Models.Group>
+
+
+<link href="Site.css" rel="stylesheet" type="text/css" />
+@{
+	ViewBag.Title = "User";
+}
+
+<hr />
+<h4>Личный кабинет администратора</h4>
+<hr />
+<table class="table">
+	<tr>
+		<td>
+			Название
+		</td>
+
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Name)
+			</td>
+			<td>
+				@Html.ActionLink("Удалить", "DeleteGroup", new { id = item.id })
+			</td>
+		</tr>
+	}
+
+</table>
+<br /><br /><br />
+Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("GroupsPage", new { page }))
+<br />
+<br />
+@Html.ActionLink("Создать группу", "AddGroup")
+@Html.ActionLink("В кабинет", "LKA")

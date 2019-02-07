@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – приложение ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body style="padding-bottom: 60px;">
+    <div id="wrapper">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="row" style="padding-left:0%;padding-right:0%;">
+                <div class="col-md-1" style="width:20%; padding-left:10%; padding-right:10%">
+                    <a href="@Url.Action("Main", "Home")"><img src="~/favicon.ico" /></a>
+                </div>
+                <div class="col-md-1" style="height:66px; width:60%;color:white">
+                    <div class="text-center">BROCARD</div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-left:0%;padding-right:0%;">
+            <div class="container body-content" style="display: flex;">
+                <div class="col-xs-6" style="flex: 1; flex-grow:7;">
+                    @RenderBody()
+                </div>
+
+                <div class="col-xs-5" style="flex: 1; flex-grow:3;">
+                    <nav id="sidebar">
+                        <div class="sidebar-header">
+                            <h3>Навигация</h3>
+                        </div>
+                        <ul class="list-unstyled components">
+                            <li>@Html.ActionLink("Главная", "Main", "Home")</li>
+                            <li>@Html.ActionLink("Поиск", "SearchPage", "Home")</li>
+                            <li>@Html.ActionLink("Личный кабинет", "UserPge", "Userview")</li>
+                            <li>@Html.ActionLink("Корзина", "CartIn", "Userview")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+<script>
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        document.getElementById("myBtn").style.display = "block";
+    }
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<footer style="position: fixed; bottom: 0px; width: 100%; height: 60px; background-color: black;">
+    <div class="row">
+        <div class="col-md-1">
+            <button onclick="topFunction()" id="myBtn" title="Go to top" style="display: none; margin-top: 15px;">Вверх</button>
+        </div>
+        <div class="col-md-11">
+            <p style="text-align:right">&emsp;&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+        </div>
+    </div>
+</footer>
+</html>

@@ -1,0 +1,60 @@
+﻿body {
+	padding-top: 50px;
+	padding-bottom: 20px;
+	height: 100%;
+	padding-left: 0%;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+	width: 100%;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+	max-width: 280px;
+}
+
+
+
+.col-xs-6 {
+	width: 70%;
+}
+
+.col-xs-5 {
+	width: 30%;
+}
+
+.row {
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.MyLoginTextBoxStyle {
+	cursor: pointer;
+	background-color: yellow;
+	text-align: center;
+	padding: 6px;
+	border: dotted black;
+	font-family: Verdana;
+	vertical-align: middle;
+}
+
+.Login {
+	display: inline-block;
+}
+
+.Title {
+	padding: 6px;
+}

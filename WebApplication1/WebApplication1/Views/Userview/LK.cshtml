@@ -1,0 +1,50 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<WebApplication1.Models.Order>
+
+
+<link href="Site.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "User";
+}
+
+
+<hr />
+<h4>Личный кабинет</h4>
+<hr />
+
+<table class="table">
+    <tr>
+        <td>
+            Номер заказа
+        </td>
+        <td>
+            Стоимость
+        </td>
+        <td>
+            Статус
+        </td>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+<br />
+0 - Оформлен, 1 - Оплачен, 2 - Отменен
+<br />
+<br />
+@Html.ActionLink("Выход", "LoggingOff")

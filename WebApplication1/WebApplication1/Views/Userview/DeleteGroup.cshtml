@@ -1,0 +1,27 @@
+﻿@model WebApplication1.Models.Group
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Вы действительно хотите удалить эту категорию?</h3>
+<div>
+	<h4>Категория</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.Label("Название", htmlAttributes: new { @class = "control-label col-md-5" })
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Name)
+		</dd>
+
+	</dl>
+
+	@using (Html.BeginForm())
+	{
+		<div class="form-actions no-color">
+			<input type="submit" value="Удалить" class="btn btn-default" /> |
+			@Html.ActionLink("В кабинет", "LKA")
+		</div>
+	}
+</div>

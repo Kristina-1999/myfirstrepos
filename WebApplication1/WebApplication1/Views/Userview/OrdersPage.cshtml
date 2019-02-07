@@ -1,0 +1,47 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<WebApplication1.Models.Order>
+
+
+<link href="Site.css" rel="stylesheet" type="text/css" />
+@{
+	ViewBag.Title = "User";
+}
+
+<hr />
+<h4>Личный кабинет администратора</h4>
+<hr />
+<table class="table">
+    <tr>
+        <td>
+            Номер
+        </td>
+        <td>
+            Статус
+        </td>
+    </tr>
+	@foreach (var item in Model)
+	{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Подтвердить", "ConfirmOrder", new { id = item.id })
+        </td>
+        <td>
+            @Html.ActionLink("Отменить", "CancelOrder", new { id = item.id })
+        </td>
+    </tr>
+	}
+
+</table>
+<br /><br /><br />
+Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("OrdersPage", new { page }))
+<br />
+<br />
+@Html.ActionLink("В кабинет", "LKA")

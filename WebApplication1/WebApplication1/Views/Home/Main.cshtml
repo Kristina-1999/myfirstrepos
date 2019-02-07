@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebApplication1.Models.Product>
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<h4>Товары</h4>
+<hr />
+<br />
+<br />
+<br />
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-xs-5" style="flex: 1; flex-grow:3;">
+            <div class="text-center">
+                <img src="@Url.Content(item.Image)" class="img-thumbnail">
+            </div>
+        </div>
+
+        <div class="text-center" style="font-size:20px;">
+            @Html.DisplayFor(modelItem => item.Name)
+        </div>
+        <div class="text-left" style="font-size:17px;">
+            @Html.DisplayFor(modelItem => item.Description)
+        </div>
+        <div class="text-left" style="font-size:15px;">
+            Категория:
+            @Html.DisplayFor(modelItem => item.Category)
+        </div>
+        <div class="text-left" style="font-size:15px;">
+            Цена:
+            @Html.DisplayFor(modelItem => item.Price)
+            грн.
+        </div>
+        @Html.ActionLink("В корзину", "AddToCart", new { iid = item.id.ToString() })
+
+
+
+    </div>
+}
