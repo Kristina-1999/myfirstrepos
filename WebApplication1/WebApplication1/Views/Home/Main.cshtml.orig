@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<WebApplication1.Models.Product>
 @{
+<<<<<<< HEAD
+    ViewBag.Title = "Main2019";
+=======
     ViewBag.Title = "2019";
+>>>>>>> new_dev
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
